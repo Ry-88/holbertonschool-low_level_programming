@@ -12,10 +12,14 @@
 /* betty style doc for function main goes there */
 int main(void)
 {
-	for (char C = 'a'; C <= 'z'; C++)
+	char C = 'a';
+
+	while (C <= 'z')
 	{
 		putchar(C);
+		C++;
 	}
+
 	putchar('\n');
 	return (0);
 }

@@ -16,7 +16,7 @@ int main(void)
 
 	while (C <= 9)
 	{
-		printf("%d",C);
+		printf("%d", C);
 		C++;
 	}
 

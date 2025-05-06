@@ -18,7 +18,7 @@ void times_table(void)
 			result = (f * n);
 			if (result == 0)
 			{
-				if (f <= 9)
+				if (f <= 9 && f > 0)
 				{
 					_putchar(',');
 					_putchar(' ');
@@ -41,10 +41,9 @@ void times_table(void)
 
 			f++;
 		}
-		
+
 		n++;
 		f = 0;
 		_putchar('\n');
 	}
-
 }

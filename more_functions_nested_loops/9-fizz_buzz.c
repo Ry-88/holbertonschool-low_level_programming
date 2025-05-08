@@ -1,9 +1,11 @@
 #include <stdio.h>
 /**
  * main - check the code
+ *
+ * Return: 0
  */
 
-void main(void)
+int main(void)
 {
 	int n = 1;
 	int three;
@@ -15,8 +17,12 @@ void main(void)
 		three = (n % 3);
 		five = (n % 5);
 		all = (three + five);
-
-		if (all == 0)
+		if (n == 100)
+		{
+			printf("Buzz");
+			break;
+		}
+		else if (all == 0)
 		{
 			printf("FizzBuzz ");
 			n++;
@@ -39,4 +45,5 @@ void main(void)
 	}
 
 	printf("\n");
+	return (0);
 }

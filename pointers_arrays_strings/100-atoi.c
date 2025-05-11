@@ -34,6 +34,12 @@ int _atoi(char *s)
 		}
 		n++;
 	}
-
-	return found ? num * sign : 0;
+	if (found)
+	{
+		return (num * sign);
+	}
+	else
+	{
+		return (1);
+	}
 }

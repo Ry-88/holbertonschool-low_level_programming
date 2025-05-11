@@ -13,18 +13,22 @@ char *cap_string(char *str)
 
 	while (str[n] != '\0')
 	{
-		if (str[n] == ' ' || str[n] == '\t' || str[n] == '\n' ||
-			str[n] == ',' || str[n] == ';' || str[n] == ',' ||
-			str[n] == '!' || str[n] == '?' || str[n] == '"' ||
-			str[n] == '(' || str[n] == ')' || str[n] == '{' ||
-			str[n] == '}'
-		   )
-		{
-			a = 1;
-		} else if (a && str[n] >= 'a' && str[n] <= 'z')
+		if (a && str[n] >= 'a' && str[n] <= 'z')
 		{
 			str[n] = str[n] - 32;
 			a = 0;
+		} else if (!((str[n] >= 'A' && str[n] <= 'Z') ||
+		           (str[n] >= 'a' && str[n] <= 'z')))
+		{
+			a = 1;
+		}
+		else
+		{
+			a = 0;
+		}
+		if (str[n] == '\t')
+		{
+			str[n] = ' ';
 		}
 		n++;
 	}

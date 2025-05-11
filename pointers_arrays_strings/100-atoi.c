@@ -1,5 +1,5 @@
 #include "main.h"
-#include <ctype.h>
+#include <limits.h>
 /**
  * _atoi - get the integer from string
  *
@@ -25,7 +25,7 @@ int _atoi(char *s)
 			found = 1;
 			if (sign == 1)
 			{
-				if (num > (2147483647 - (s[n] - '0')) / 10)
+				if (num > (INT_MAX - (s[n] - '0')) / 10)
 				{
 					break;
 				}
@@ -33,7 +33,7 @@ int _atoi(char *s)
 			}
 			else
 			{
-				if (num < (-2147483647 + (s[n] - '0')) / 10)
+				if (num < (INT_MIN + (s[n] - '0')) / 10)
 				{
 					break;
 				}

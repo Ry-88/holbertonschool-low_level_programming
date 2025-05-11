@@ -14,32 +14,23 @@ int _atoi(char *s)
 
 	while (s[n] != '\0')
 	{
-		if (s[n] == '-' && isdigit(s[n + 1]))
+		if (s[n] == '-' && !found)
 		{
-			sign = -1;
-			n++;
-		}
-
-		if (isdigit(s[n]))
+			sign *= -1;
+		} else if (s[n] == '+' && !found)
+		{
+			;
+		} else if (s[n] >= '0' && s[n] <= '9')
 		{
 			found = 1;
-			num = 0;
-
-			while (isdigit(s[n]))
-			{
-				num = num * 10 + (s[n] - '0');
-				n++;
-			}
+			num = num * 10 + (s[n] - '0');
+		} else if (found)
+		{
 			break;
 		}
+
 		n++;
 	}
-	if (found)
-	{
-		return (num * sign);
-	}
-	else
-	{
-		return (1);
-	}
+
+	return (num * sign);
 }

@@ -27,9 +27,9 @@ unsigned int _strspn(char *s, char *accept)
 
 		if (!check)
 		{
-			return i;
+			return (i);
 		}
 	}
 
-	return i;
+	return (i);
 }

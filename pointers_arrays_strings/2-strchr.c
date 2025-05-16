@@ -11,9 +11,9 @@
 
 char *_strchr(char *s, char c)
 {
-	int n = 0;
+	int n;
 
-	while (s[n] != '\0')
+	for (n = 0; s[n] != '\0'; n++)
 	{
 		if (s[n] == c)
 		{

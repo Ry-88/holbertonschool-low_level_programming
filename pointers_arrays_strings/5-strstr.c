@@ -11,7 +11,7 @@
 
 char *_strstr(char *haystack, char *needle)
 {
-	int i, count;
+	int i, count = 0;
 
 	while (haystack[count])
 	{

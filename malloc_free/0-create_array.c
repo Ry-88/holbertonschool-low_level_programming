@@ -27,5 +27,10 @@ char *create_array(unsigned int size, char c)
 		n++;
 	}
 
-	return (array);
+	if (array != NULL)
+	{
+		return (array);
+	}
+
+	return (0);
 }

@@ -27,10 +27,10 @@ char *create_array(unsigned int size, char c)
 		n++;
 	}
 
-	if (array != NULL)
+	if (array == NULL)
 	{
-		return (array);
+		return (0);
 	}
 
-	return (0);
+	return (array);
 }

@@ -24,6 +24,10 @@ char *_strdup(char *str)
 	}
 
 	array = malloc(size * sizeof(char));
+	if (array == NULL)
+	{
+		return (NULL);
+	}
 
 	while (num < size)
 	{

@@ -14,7 +14,7 @@ char *str_concat(char *s1, char *s2)
 	char *array;
 	int size1 = 0, size2 = 0, size3 = 0, num = 0, num2 = 0;
 
-	if (s1 == NULL && s2 == NULL)
+	if (s1 == NULL || s2 == NULL)
 	{
 		return (NULL);
 	}
@@ -27,8 +27,7 @@ char *str_concat(char *s1, char *s2)
 	{
 	}
 
-	size1++, size2++;
-	size3 = size1 + size2;
+	size3 = size1 + size2 + 1;
 
 	array = malloc(size3 * sizeof(char));
 
@@ -37,12 +36,12 @@ char *str_concat(char *s1, char *s2)
 		return (NULL);
 	}
 
-	for (; num < size1 - 1; num++)
+	for (; num < size1; num++)
 	{
 		array[num] = s1[num];
 	}
 
-	while (num < size3 - 2)
+	while (num < size3 - 1)
 	{
 		array[num] = s2[num2];
 		num++, num2++;

@@ -14,10 +14,14 @@ char *str_concat(char *s1, char *s2)
 	char *array;
 	int size1 = 0, size2 = 0, size3 = 0, num = 0, num2 = 0;
 
-	if (s1 == NULL || s2 == NULL)
+	if (s1 == NULL)
 	{
-		array = "";
-		return (array);
+		s1 = "";
+	}
+
+	if (s2 == NULL)
+	{
+		s2 = "";
 	}
 
 	for (; s1[size1] != '\0'; size1++)

@@ -1,5 +1,12 @@
 #ifndef HEADER_FILE
 #define HEADER_FILE
+/**
+ * struct dog - contain a name, owner and age of dog.
+ * @name: name of the dog
+ * @owner: name of the owner
+ * @age: age of the dog
+ */
+
 struct dog
 {
 	char *name;

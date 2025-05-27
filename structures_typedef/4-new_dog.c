@@ -1,5 +1,9 @@
 #include "dog.h"
 #include <stdlib.h>
+
+int _strlen(char *s);
+char *_strcpy(char *dest, char *src);
+
 /**
  * new_dog - get a copy of dog_t
  * @name: name of the dog
@@ -10,39 +14,88 @@
 
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	int i, j, num1 = 0, num2 = 0;
 	dog_t *dog2;
+	int l_name = 0, l_owner = 0;
 
-	for (i = 0; name[i]; i++)
+	if (name != NULL && owner != NULL)
 	{
-	}
-	for (j = 0; owner[j]; j++)
-	{
-	}
-	dog2 = malloc(sizeof(dog_t));
-	if (dog2 == NULL)
-	{
-		return (NULL);
-	}
-	dog2->name = malloc(i + 1);
-	if (dog2->name == NULL)
-	{
-		return (NULL);
-	}
-	dog2->owner = malloc(j + 1);
-	if (dog2->owner == NULL)
-	{
-		return (NULL);
-	}
-	for (; num1 < i; num1++)
-	{
-		dog2->name[num1] = name[num1];
-	}
-	for (; num2 < j; num2++)
-	{
-		dog2->owner[num2] = owner[num2];
+		l_name = _strlen(name);
+		l_owner = _strlen(owner);
+		dog2 = malloc(sizeof(dog_t));
+		if (dog2 == NULL)
+		{
+			return (NULL);
+		}
+		dog2->name = malloc(l_name * sizeof(char));
+		if (dog2->name == NULL)
+		{
+			free(dog2->name);
+			free(dog2);
+			return (NULL);
+		}
+		dog2->owner = malloc(l_owner * sizeof(char));
+		if (dog2->owner == NULL)
+		{
+			free(dog2->owner);
+			free(dog2);
+			return (NULL);
+		}
+		dog2->name = _strcpy(dog2->name, name);
+		dog2->owner = _strcpy(dog2->owner, owner);
 	}
 	dog2->age = age;
 
 	return (dog2);
+}
+
+/**
+ * _strlen - count the number of latter
+ *
+ * @s: contain a word
+ *
+ * Return: n
+ */
+
+int _strlen(char *s)
+{
+	int n = 0;
+
+	while (s[n] != '\0')
+	{
+		n++;
+	}
+
+	return (n);
+}
+
+/**
+ * _strcpy - copies the string pointed to by src
+ *
+ * @dest: contain array s1
+ * @src: contain a text
+ *
+ * Return: dest
+ */
+
+char *_strcpy(char *dest, char *src)
+{
+	int n = 0, s = 0;
+
+	while (src[n] != '\0')
+	{
+		n++;
+	}
+
+	while (s <= n)
+	{
+		if (s == n)
+		{
+			dest[s] = '\0';
+			break;
+		}
+		dest[s] = src[s];
+		s++;
+	}
+
+	return (dest);
 }

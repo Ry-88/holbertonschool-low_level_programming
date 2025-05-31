@@ -1,7 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include "3-calc.h"
-
 /**
  * main - prints result of simple operations
  * @argc: number of arguments
@@ -14,7 +13,7 @@ int main(int argc, char *argv[])
 	int num1, num2, calc;
 	char *operator;
 
-	if (argc > 4)
+	if (argc > 4 || !argv[3])
 	{
 		printf("Error\n");
 		exit(98);

@@ -49,7 +49,7 @@ void close_fd(int fd)
 void copy_content(int fd_from, int fd_to,
 		const char *file_from, const char *file_to)
 {
-	int n_read, n_written;
+	ssize_t n_read, n_written;
 	char buffer[BUF_SIZE];
 
 	while ((n_read = read(fd_from, buffer, BUF_SIZE)) > 0)

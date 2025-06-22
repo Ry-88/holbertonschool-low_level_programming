@@ -62,9 +62,11 @@ void copy_content(int fd_from, int fd_to,
 		else if (n_read > 0)
 		{
 			n_written = write(fd_to, buffer, n_read);
-			if (n_written != n_read)
+			if (n_written == -1)
 				print_error(99, "Error: Can't write to %s\n", file_to);
-                }
+			else if (n_written != n_read)
+				print_error(99, "Error: Can't write to %s\n", file_to);
+		}
 	}
 }
 

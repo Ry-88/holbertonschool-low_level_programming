@@ -49,7 +49,7 @@ void close_fd(int fd)
 void copy_content(int fd_from, int fd_to,
 		const char *file_from, const char *file_to)
 {
-	size_t n_read, n_written;
+	int n_read, n_written;
 	char buffer[BUF_SIZE];
 
 	while ((n_read = read(fd_from, buffer, BUF_SIZE)) > 0)
@@ -58,7 +58,7 @@ void copy_content(int fd_from, int fd_to,
 		if (n_written != n_read)
 			print_error(99, "Error: Can't write to %s\n", file_to);
 	}
-	if ((int)n_read == -1)
+	if (n_read == -1)
 		print_error(98, "Error: Can't read from file %s\n", file_from);
 }
 

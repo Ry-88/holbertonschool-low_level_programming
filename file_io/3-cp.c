@@ -52,14 +52,17 @@ void copy_content(int fd_from, int fd_to,
 	ssize_t n_read, n_written;
 	char buffer[BUF_SIZE];
 
-	while ((n_read = read(fd_from, buffer, BUF_SIZE)) > 0)
+	for (;;)
 	{
+		n_read = read(fd_from, buffer, BUF_SIZE);
+		if (n_read == -1)
+			print_error(98, "Error: Can't read from file %s", file_from);
+		if (n_read == 0)
+			break;
 		n_written = write(fd_to, buffer, n_read);
 		if (n_written != n_read)
 			print_error(99, "Error: Can't write to %s\n", file_to);
 	}
-	if (n_read == -1)
-		print_error(98, "Error: Can't read from file %s\n", file_from);
 }
 
 /**
